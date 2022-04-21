@@ -44,6 +44,10 @@
               "target": "Package",
               "version": "[5.0.16, )"
             },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[5.0.16, )"
+            },
             "Schema.NET": {
               "target": "Package",
               "version": "[11.0.1, )"
