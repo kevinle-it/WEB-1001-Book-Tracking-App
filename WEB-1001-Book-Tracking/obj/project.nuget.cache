@@ -1,8 +1,14 @@
 {
   "version": 2,
-  "dgSpecHash": "rebvIWH+WznmfxcVyBaSb3px4VjIzAsRBBHjXt+ZbhmnW+nWah4R5zonECqHqR+sr1qFzE7h24IWDeHBI2a9iw==",
+  "dgSpecHash": "OsNW8Xdx9wfvgoOFVX1MpniIbdFVcHYNpKSZPSb02Q0q+2j6GHLLP5QjPgJSWdWQ1QB0Bg/OWYZ3b2Iwvqk3rA==",
   "success": true,
   "projectFilePath": "\\\\Mac\\Home\\Documents\\Canada\\Education\\Cambrian\\MAPD\\WEB-1001-11747\\Week_14\\WEB-1001-Book-Tracking\\WEB-1001-Book-Tracking\\WEB-1001-Book-Tracking.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\maclife\\.nuget\\packages\\schema.net\\11.0.1\\schema.net.11.0.1.nupkg.sha512",
+    "C:\\Users\\maclife\\.nuget\\packages\\system.memory\\4.5.4\\system.memory.4.5.4.nupkg.sha512",
+    "C:\\Users\\maclife\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\6.0.0\\system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512",
+    "C:\\Users\\maclife\\.nuget\\packages\\system.text.encodings.web\\6.0.0\\system.text.encodings.web.6.0.0.nupkg.sha512",
+    "C:\\Users\\maclife\\.nuget\\packages\\system.text.json\\6.0.0\\system.text.json.6.0.0.nupkg.sha512"
+  ],
   "logs": []
 }
