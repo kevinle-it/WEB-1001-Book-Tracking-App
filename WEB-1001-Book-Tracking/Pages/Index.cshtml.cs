@@ -1,25 +1,30 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.Extensions.Logging;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.EntityFrameworkCore;
+using WEB_1001_Book_Tracking.Data;
+using WEB_1001_Book_Tracking.Models;
 
 namespace WEB_1001_Book_Tracking.Pages
 {
     public class IndexModel : PageModel
     {
-        private readonly ILogger<IndexModel> _logger;
+        private readonly WEB_1001_Book_Tracking.Data.BookTrackingDbContext _context;
 
-        public IndexModel(ILogger<IndexModel> logger)
+        public IndexModel(WEB_1001_Book_Tracking.Data.BookTrackingDbContext context)
         {
-            _logger = logger;
+            _context = context;
         }
 
-        public void OnGet()
-        {
+        public IList<Book> Book { get;set; }
 
+        public async Task OnGetAsync()
+        {
+            Book = await _context.Books
+                .Include(b => b.Category).ToListAsync();
         }
     }
 }

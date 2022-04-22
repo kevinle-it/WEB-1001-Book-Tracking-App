@@ -68,7 +68,7 @@ namespace WEB_1001_Book_Tracking.Pages.Books
                 }
             }
 
-            return RedirectToPage("./Index");
+            return RedirectToPage("/Index");
         }
 
         private bool BookExists(string id)

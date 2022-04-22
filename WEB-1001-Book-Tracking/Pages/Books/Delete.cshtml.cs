@@ -54,7 +54,7 @@ namespace WEB_1001_Book_Tracking.Pages.Books
                 await _context.SaveChangesAsync();
             }
 
-            return RedirectToPage("./Index");
+            return RedirectToPage("/Index");
         }
     }
 }
