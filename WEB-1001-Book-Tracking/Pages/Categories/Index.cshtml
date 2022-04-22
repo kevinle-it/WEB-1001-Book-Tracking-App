@@ -1,0 +1,42 @@
+﻿@page
+@model WEB_1001_Book_Tracking.Pages.Categories.IndexModel
+
+@{
+    ViewData["Title"] = "Categories";
+}
+
+<h1>Categories</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Category[0].Description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Category[0].Type)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Category) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Type.Type)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.NameToken">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.NameToken">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.NameToken">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
