@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -25,6 +26,8 @@ namespace WEB_1001_Book_Tracking
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddResponseCaching();
+
             services.AddDbContext<BookTrackingDbContext>(builder =>
             {
                 builder.UseSqlServer("Name=ConnectionStrings:BookTrackingDb-localdb");
@@ -48,6 +51,21 @@ namespace WEB_1001_Book_Tracking
             }
 
             app.UseHttpsRedirection();
+
+            app.UseResponseCaching();
+
+            app.Use(async (context, next) =>
+            {
+                context.Response.GetTypedHeaders().CacheControl =
+                    new Microsoft.Net.Http.Headers.CacheControlHeaderValue()
+                    {
+                        Public = true,
+                        MaxAge = TimeSpan.FromDays(365)
+                    };
+
+                await next();
+            });
+
             app.UseStaticFiles();
 
             app.UseRouting();
