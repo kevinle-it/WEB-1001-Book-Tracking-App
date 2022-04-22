@@ -5,6 +5,16 @@
     ViewData["Title"] = "Books";
 }
 
+@section JSONLD
+{
+    [
+        @foreach(var entry in Model.JSONLD)
+        {
+            @Html.Raw(entry.ToHtmlEscapedString() + ',');
+        }
+    ]
+}
+
 <h1>Books</h1>
 
 <p>

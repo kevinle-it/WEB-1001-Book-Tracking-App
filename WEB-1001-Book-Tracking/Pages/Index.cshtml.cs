@@ -6,7 +6,8 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using WEB_1001_Book_Tracking.Data;
-using WEB_1001_Book_Tracking.Models;
+using local = WEB_1001_Book_Tracking.Models;
+using schema = Schema.NET;
 
 namespace WEB_1001_Book_Tracking.Pages
 {
@@ -19,12 +20,24 @@ namespace WEB_1001_Book_Tracking.Pages
             _context = context;
         }
 
-        public IList<Book> Book { get;set; }
+        public ICollection<schema.Thing> JSONLD { get; set; }
+
+        public IList<local.Book> Book { get;set; }
 
         public async Task OnGetAsync()
         {
             Book = await _context.Books
-                .Include(b => b.Category).ToListAsync();
+                .Include(b => b.Category)
+                .ThenInclude(c => c.Type)
+                .ToListAsync();
+
+            List<schema.Thing> list = new List<schema.Thing>();
+            foreach (var book in Book)
+            {
+                list.Add(book.GetJson());
+            }
+
+            JSONLD = list;
         }
     }
 }

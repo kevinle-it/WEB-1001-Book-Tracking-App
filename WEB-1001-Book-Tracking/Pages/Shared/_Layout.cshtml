@@ -6,6 +6,9 @@
     <title>@ViewData["Title"] - WEB_1001_Book_Tracking</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <script type="application/ld+json">
+        @await RenderSectionAsync("JSONLD", required: false)
+    </script>
 </head>
 <body>
     <header>
